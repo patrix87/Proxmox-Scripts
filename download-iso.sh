@@ -1,6 +1,6 @@
 #!/bin/bash
 # Set the variables
-ubuntu_version="24.04"
+ubuntu_version="noble"
 image_url=https://cloud-images.ubuntu.com/releases/${ubuntu_version}/release/ubuntu-${ubuntu_version}-server-cloudimg-amd64.img
 image_checksum_url=https://cloud-images.ubuntu.com/releases/${ubuntu_version}/release/SHA256SUMS
 image_gpg_url=https://cloud-images.ubuntu.com/releases/${ubuntu_version}/release/SHA256SUMS.gpg
