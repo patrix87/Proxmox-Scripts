@@ -11,7 +11,6 @@ password=password
 
 # Update the package list and upgrade the system
 apt update -y
-apt upgrade -y
 # Install the libguestfs-tools package
 apt install libguestfs-tools -y
 # Install the QEMU Guest Agent and disable password login
