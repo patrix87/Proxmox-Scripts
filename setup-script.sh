@@ -53,6 +53,13 @@ systemctl enable -q --now corosync
 # Adding QDevice packages
 apt-get install -y corosync-qdevice
 
+# Set migration type to insecure in datacenter.cfg for unencrypted migration traffic
+if ! grep -q '^migration:' /etc/pve/datacenter.cfg; then
+    echo "migration: network=172.16.0.1/24,type=insecure" >> /etc/pve/datacenter.cfg
+else
+    sed -i 's/^migration:.*/migration: network=172.16.0.1\/24,type=insecure/' /etc/pve/datacenter.cfg
+fi
+
 # Updating Proxmox VE
 apt-get update
 apt-get -y upgrade
