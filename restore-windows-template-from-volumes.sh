@@ -8,8 +8,8 @@ virtio_iso=/var/lib/vz/template/iso/virtio-win-0.1.271.iso
 cores=4
 memory=4096
 # Set the correct disk id here. Look for the serial number of the disk to identify them.
-tpmstatedisk=${storage}:vm-${id}-disk-0
-efidisk=${storage}:vm-${id}-disk-1
+efidisk=${storage}:vm-${id}-disk-0
+tpmstatedisk=${storage}:vm-${id}-disk-1
 osdisk=${storage}:vm-${id}-disk-2
 
 # Check if the VM with the same ID exists and delete it
@@ -31,10 +31,10 @@ qm set $id --scsihw virtio-scsi-single
 qm set $id --machine q35
 # Set the BIOS type to OVMF (UEFI)
 qm set $id --bios ovmf
-# Create a TPM state storage with version 2.0
-qm set $id --tpmstate0 ${tpmstatedisk},version=v2.0
 # Create an EFI disk with raw format and pre-enrolled keys
 qm set $id --efidisk0 ${efidisk},format=raw,efitype=4m,pre-enrolled-keys=1
+# Create a TPM state storage with version 2.0
+qm set $id --tpmstate0 ${tpmstatedisk},version=v2.0
 # Create a SCSI disk with the specified size and raw format
 qm set $id --scsi0 ${osdisk},format=raw
 # Set the CD-ROM drive to use the Windows ISO
