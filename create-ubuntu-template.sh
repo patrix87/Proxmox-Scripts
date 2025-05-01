@@ -1,6 +1,6 @@
 #!/bin/bash
 # Set the variables
-id=9000
+id=9100
 name=ubuntu-24
 storage=local-lvm
 disk=/var/lib/vz/template/iso/ubuntu-24.04-server-cloudimg-amd64.img

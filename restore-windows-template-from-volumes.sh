@@ -1,6 +1,6 @@
 #!/bin/bash
 # Set the variables
-id=9001
+id=9101
 name=windows-2025
 storage=local-lvm
 iso=/var/lib/vz/template/iso/Windows-Server-2025-Eval-X64-EN-US.iso
