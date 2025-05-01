@@ -24,7 +24,7 @@ qm set $id --agent enabled=1
 qm set $id --ostype other
 # Allow hotplugging of disks, network interfaces, and USB devices
 qm set $id --hotplug disk,network,usb
-# create a serial port and set it as the primary display
-qm set "$id" --serial0 socket --vga serial0
+# create the primary display
+qm set $id --vga virtio
 # Display the VM configuration
 qm config $id
