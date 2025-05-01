@@ -21,7 +21,7 @@ if qm list | grep -q "$id"; then
     qm destroy "$id"
 fi
 # Create a new VM with the ID id and the name name
-qm create "$id" --memory $memory --core $cores --name "$name" --net0 virtio,bridge=vmbr1
+qm create "$id" --memory $memory --core $cores --cpu host --name "$name" --net0 virtio,bridge=vmbr1
 # Import the name cloud image to the storage storage
 qm disk import "$id" "$disk" "$storage"
 # Set the id VM to use the storage storage

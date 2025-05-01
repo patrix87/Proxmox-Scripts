@@ -12,7 +12,6 @@ signature_file=$(basename "$image_gpg_url")
 declare -A other_iso
 other_iso=(
     ["virtio-win-0.1.271.iso"]="https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/virtio-win-0.1.271-1/virtio-win-0.1.271.iso"
-    ["proxmox-backup-server_3.4-1.iso"]="https://enterprise.proxmox.com/iso/proxmox-backup-server_3.4-1.iso"
     ["Windows-Server-2025-Eval-X64-EN-US.iso"]="https://go.microsoft.com/fwlink/?linkid=2293312&clcid=0x409&culture=en-us&country=us"
 )
 
