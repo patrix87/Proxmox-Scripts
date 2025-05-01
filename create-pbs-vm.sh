@@ -6,7 +6,7 @@ storage=ha-pbs-1tb-01
 iso=/var/lib/vz/template/iso/proxmox-backup-server_3.4-1.iso
 cores=4
 memory=4096
-disk_size=32
+disk_size=4
 
 # Create a new VM with the specified ID and name, using the host CPU type
 qm create $id --name $name --cpu host --cores $cores --memory $memory --net0 virtio,bridge=vmbr0
