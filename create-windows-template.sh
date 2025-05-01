@@ -29,11 +29,11 @@ qm set $id --machine q35
 # Set the BIOS type to OVMF (UEFI)
 qm set $id --bios ovmf
 # Create an EFI disk with raw format and pre-enrolled keys
-qm set $id --efidisk0 ${storage}:1,format=raw,efitype=4m,pre-enrolled-keys=1,serial=EFI_DISK
+qm set $id --efidisk0 ${storage}:1,format=raw,efitype=4m,pre-enrolled-keys=1
 # Create a TPM state storage with version 2.0
-qm set $id --tpmstate0 ${storage}:1,version=v2.0,serial=TPM_DISK
+qm set $id --tpmstate0 ${storage}:1,version=v2.0
 # Create a SCSI disk with the specified size and raw format
-qm set $id --scsi0 ${storage}:${disk_size},format=raw,serial=OS_DISK
+qm set $id --scsi0 ${storage}:${disk_size},format=raw
 # Set the CD-ROM drive to use the Windows ISO
 qm set $id --ide2 $iso,media=cdrom
 # Attach the VirtIO ISO as a CD-ROM on IDE3
