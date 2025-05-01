@@ -21,7 +21,7 @@ qm set $id --cores $cores
 # Set the amount of memory for the VM
 qm set $id --memory $memory
 # Configure the network interface using VirtIO and bridge it to vmbr0
-qm set $id --net0 virtio,bridge=vmbr0
+qm set $id --net0 virtio,bridge=vmbr1
 # Set the SCSI controller type to VirtIO SCSI single
 qm set $id --scsihw virtio-scsi-single
 # Set the machine type to Q35
