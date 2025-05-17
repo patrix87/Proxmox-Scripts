@@ -25,22 +25,6 @@ cat <<EOF >/etc/apt/sources.list.d/pve-install-repo.list
 deb http://download.proxmox.com/debian/pve bookworm pve-no-subscription
 EOF
 
-# Disabling 'pbs-enterprise' repository
-cat <<EOF >/etc/apt/sources.list.d/pbs-enterprise.list
-# deb https://enterprise.proxmox.com/debian/pbs bookworm pbs-enterprise
-EOF
-
-# Adding 'pbs-no-subscription' repository
-cat <<EOF >/etc/apt/sources.list.d/pbs-install-repo.list
-deb http://download.proxmox.com/debian/pbs bookworm pbs-no-subscription
-EOF
-
-
-
-# Install Proxmox Backup Server
-apt-get update
-apt-get install -y proxmox-backup-server
-
 # Correcting 'ceph package repositories'
 cat <<EOF >/etc/apt/sources.list.d/ceph.list
 # deb https://enterprise.proxmox.com/debian/ceph-quincy bookworm enterprise
@@ -52,6 +36,20 @@ EOF
 # Adding 'pvetest' repository and set disabled
 cat <<EOF >/etc/apt/sources.list.d/pvetest-for-beta.list
 # deb http://download.proxmox.com/debian/pve bookworm pvetest
+EOF
+
+# Install Proxmox Backup Server
+apt-get update
+apt-get install -y proxmox-backup-server
+
+# Disabling 'pbs-enterprise' repository
+cat <<EOF >/etc/apt/sources.list.d/pbs-enterprise.list
+# deb https://enterprise.proxmox.com/debian/pbs bookworm pbs-enterprise
+EOF
+
+# Adding 'pbs-no-subscription' repository
+cat <<EOF >/etc/apt/sources.list.d/pbs-install-repo.list
+deb http://download.proxmox.com/debian/pbs bookworm pbs-no-subscription
 EOF
 
 # Adding 'pbstest' repository and set disabled
