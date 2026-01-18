@@ -8,6 +8,7 @@ apt-get update
 # Cleanup legacy sources
 echo "Cleaning up legacy repository files..."
 rm -f /etc/apt/sources.list.d/*.list
+rm -f /etc/apt/sources.list.d/*.sources
 sed -i '/proxmox/d;/bookworm/d;/trixie/d' /etc/apt/sources.list 2>/dev/null || true
 
 # Correcting Debian Base Sources (Trixie) - deb822 format
