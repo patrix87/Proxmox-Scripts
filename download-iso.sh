@@ -11,8 +11,8 @@ checksum_file=$(basename "$image_checksum_url")
 signature_file=$(basename "$image_gpg_url")
 declare -A other_iso
 other_iso=(
-    ["virtio-win-0.1.271.iso"]="https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/virtio-win-0.1.271-1/virtio-win-0.1.271.iso"
-    ["Windows-Server-2025-Eval-X64-EN-US.iso"]="https://go.microsoft.com/fwlink/?linkid=2293312&clcid=0x409&culture=en-us&country=us"
+    ["virtio-win-0.1.285.iso"]="https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/virtio-win-0.1.285-1/virtio-win-0.1.285.iso"
+    ["Windows-Server-2025-Eval-X64-EN-US.iso"]="https://go.microsoft.com/fwlink/?linkid=2345730&clcid=0x409&culture=en-us&country=us"
 )
 
 # Check if the target directory exists create it if it does not
