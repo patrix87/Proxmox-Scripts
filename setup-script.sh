@@ -3,6 +3,10 @@
 # Update package manager
 apt-get update
 
+# Install CPU microcode for security and bug fixes
+echo "Installing CPU microcode..."
+apt-get install -y amd64-microcode intel-microcode
+
 ## Most of this script is from https://github.com/community-scripts/ProxmoxVE/blob/main/tools/pve/post-pve-install.sh
 
 # Cleanup legacy sources
