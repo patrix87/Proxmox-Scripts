@@ -30,8 +30,8 @@ qm set "$id" --scsihw virtio-scsi-pci --scsi0 "$storage":vm-"$id"-disk-0
 qm set "$id" --ide2 "$storage":cloudinit
 # set boot from the storage cloud image
 qm set "$id" --boot c --bootdisk scsi0
-# create a serial port and set it as the primary display
-qm set "$id" --serial0 socket --vga serial0
+# set standard VGA display
+qm set "$id" --vga std
 # Enable QEUM Guest Agent
 qm set "$id" --agent enabled=1
 # use the user "user"
