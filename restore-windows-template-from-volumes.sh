@@ -3,8 +3,8 @@
 id=9101
 name=windows-2025
 storage=local-lvm
-iso=/var/lib/vz/template/iso/Windows-Server-2025-Eval-X64-EN-US.iso
-virtio_iso=/var/lib/vz/template/iso/virtio-win-0.1.271.iso
+iso=/var/lib/vz/template/iso/Windows-Server-2025-OEM-X64-EN-US.iso
+virtio_iso=/var/lib/vz/template/iso/virtio-win-0.1.285.iso
 cores=4
 memory=4096
 # Set the correct disk id here. Look for the serial number of the disk to identify them.
