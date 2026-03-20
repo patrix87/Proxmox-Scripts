@@ -17,8 +17,8 @@ if qm list | grep -q "$id"; then
     qm stop "$id"
     qm destroy "$id"
 fi
-# Create a new VM with the specified ID and name, using the host CPU type
-qm create $id --name $name --cpu host
+# Create a new VM with the specified ID and name, using x86-64-v3 to avoid Windows Spectre/Meltdown mitigation performance penalty
+qm create $id --name $name --cpu x86-64-v3
 # Set the number of CPU cores for the VM
 qm set $id --cores $cores
 # Set the amount of memory for the VM
