@@ -15,4 +15,4 @@ Below is a list of all scripts in this repository with a short description of ea
   Downloads the latest Ubuntu cloud image and Windows Server 2025 Eval as well as other ISOs (such as VirtIO drivers), verifies checksums and signatures, and places them in the Proxmox ISO directory.
 
 - **setup-script.sh**  
-  Sets up and configures a Proxmox VE host: updates repositories, disables subscription nag, configures sources, disables HA services, installs QDevice, and updates the system.
+  Sets up and configures a Proxmox VE host: updates repositories, disables subscription nag, configures sources, disables HA services, configures corosync quorum for power-outage resilience, and updates the system.

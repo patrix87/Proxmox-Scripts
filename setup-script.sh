@@ -167,9 +167,27 @@ systemctl disable -q --now pve-ha-lrm
 systemctl disable -q --now pve-ha-crm
 systemctl enable -q --now corosync
 
-# Adding QDevice packages
-echo "Installing QDevice packages..."
-apt-get install -y corosync-qdevice
+# Configure corosync quorum for power-outage resilience
+# expected_votes: 1 allows a single node to form quorum on boot (e.g. after a full power outage)
+# At runtime with all nodes present, votequorum auto-adjusts to the actual node count
+echo "Configuring corosync quorum settings..."
+if [ -f /etc/pve/corosync.conf ]; then
+    if ! grep -q 'expected_votes' /etc/pve/corosync.conf; then
+        # Get current config_version and bump it
+        CURRENT_VERSION=$(grep -oP 'config_version:\s*\K\d+' /etc/pve/corosync.conf)
+        NEW_VERSION=$((CURRENT_VERSION + 1))
+        # Add expected_votes: 1 to the quorum block
+        sed -i '/provider: corosync_votequorum/a\  expected_votes: 1' /etc/pve/corosync.conf
+        # Bump config_version
+        sed -i "s/config_version: ${CURRENT_VERSION}/config_version: ${NEW_VERSION}/" /etc/pve/corosync.conf
+        systemctl restart corosync
+        echo "Quorum settings applied (config_version: ${NEW_VERSION})."
+    else
+        echo "Quorum settings already configured."
+    fi
+else
+    echo "Corosync config not found, skipping quorum configuration. Run again after cluster creation."
+fi
 
 # Set migration type to insecure in datacenter.cfg for unencrypted migration traffic
 echo "Configuring migration settings..."
