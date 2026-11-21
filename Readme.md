@@ -14,7 +14,9 @@ Below is a list of all scripts in this repository with a short description of ea
 
 - **restore-windows-template-from-volumes.sh**  
   Restores or recreates a Windows Server 2025 VM template from existing disk
-  volumes, configuring all necessary VM hardware and settings.
+  volumes, configuring all necessary VM hardware and settings. On PVE 9+ it
+  also enrolls the Microsoft UEFI 2023 certificates into the restored EFI disk
+  (`create-windows-template.sh` gets them automatically on a new EFI disk).
 
 - **download-iso.sh**  
   Downloads the latest Ubuntu cloud image and Windows Server 2025 Eval as well

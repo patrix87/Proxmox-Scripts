@@ -33,6 +33,10 @@ qm set $id --machine q35
 qm set $id --bios ovmf
 # Create an EFI disk with raw format and pre-enrolled keys
 qm set $id --efidisk0 ${efidisk},format=raw,efitype=4m,pre-enrolled-keys=1
+# The restored EFI vars may predate the Microsoft UEFI 2023 certificates: enroll them (PVE 9+)
+if qm help enroll-efi-keys >/dev/null 2>&1; then
+    qm enroll-efi-keys $id
+fi
 # Create a TPM state storage with version 2.0
 qm set $id --tpmstate0 ${tpmstatedisk},version=v2.0
 # Create a SCSI disk with the specified size and raw format
